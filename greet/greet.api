@@ -1,0 +1,14 @@
+type Request {
+	Name string `json:"name"`
+}
+
+type Response {
+	Message string   `json:"message"`
+	Name    Response `json:"name"`
+	Age     int64    `json:"age"`
+}
+
+service greet-api {
+	@handler GreetHandler
+	get /index returns (Response);
+}
